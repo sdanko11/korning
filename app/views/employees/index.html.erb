@@ -1,0 +1,20 @@
+<h1>Employees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <% employee_path(employee) %>
+      <tr>
+        <td><%= link_to employee.name, employee_path(employee) %> </td> 
+        <td><%= link_to employee.email, "http://www.gmail.com" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -11,22 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213012513) do
+ActiveRecord::Schema.define(version: 20131217191255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "sales", force: true do |t|
-    t.string   "employee"
-    t.string   "customer_and_account_no"
-    t.string   "product_name"
-    t.date     "sale_date"
-    t.decimal  "sale_amount"
-    t.integer  "units_sold"
-    t.string   "invoice_no"
-    t.string   "invoice_frequency"
+  create_table "customers", force: true do |t|
+    t.string   "name",               null: false
+    t.string   "acct_numbner",       null: false
+    t.string   "url",                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "rate_of_invoice_id"
+  end
+
+  create_table "employees", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "email",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "invoices", force: true do |t|
+    t.integer  "sale_id"
+    t.decimal  "sale_amount_per_payment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sales", force: true do |t|
+    t.integer  "customer_id"
+    t.integer  "employee_id"
+    t.decimal  "sale_amount"
+    t.integer  "product_id"
+    t.string   "rate_of_invoice"
+    t.integer  "units_sold"
+    t.string   "date_sold_string"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "invoice_number"
+    t.datetime "date_sold"
   end
 
 end
