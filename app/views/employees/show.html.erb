@@ -1,5 +1,4 @@
 <h1> <%= @employee.name %></h1>
-
 <table>
   <thead>
     <tr>
@@ -8,23 +7,19 @@
       <th> Sale Amount </th>
       <th> Units Sold </th>
       <th> Rate of Invoice </th>
-
     </tr>
   </thead>
-
   <tbody>
     <p> All Sales </p>
     <% @sales.each do |sale| %>
-  <tr>
-    <td> <%= sale.product.name %> </td>
-    <td> <%= sale.date_sold %> </td>
-    <td> <%=sale.sale_amount %> </td>
-    <td> <%=sale.units_sold %> </td>
-    <td> <%= sale.rate_of_invoice%> </td>
-   
-  </tr>
-      <% end %>
+      <tr>
+        <td> <%= sale.product.name %> </td>
+        <td> <%= sale.date_sold %> </td>
+        <td> <%=sale.sale_amount %> </td>
+        <td> <%=sale.units_sold %> </td>
+        <td> <%= sale.rate_of_invoice%> </td>
       </tr>
+    <% end %>
   </tbody>
 </table>
 
