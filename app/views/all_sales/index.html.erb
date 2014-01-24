@@ -1,5 +1,4 @@
-<h1>Sales Last 12 Months</h1>
-
+<h1>Sales Last 15 Months</h1>
 <table>
   <thead>
     <tr>
@@ -8,19 +7,16 @@
       <th> Units Sold </th>
       <th> Rate of Invoice </th>
       <th> Unit Price </th>
-
     </tr>
   </thead>
-
   <tbody>
-
-    <% @sales_last_12_months.each do |sale| %>
+    <% @sales_last_15_months.each do |sale| %>
       <tr>
-        <td><%= sale.date_sold %> </td>
-        <td><%= sale.sale_amount %></td>
-        <td><%= sale.units_sold %></td>
-        <td><%= sale.rate_of_invoice %></td>
-        <td><%= (sale.sale_amount/sale.units_sold).round(2) %></td>
+      <td><%= sale.date_sold %> </td>
+      <td><%= sale.sale_amount %></td>
+      <td><%= sale.units_sold %></td>
+      <td><%= sale.rate_of_invoice %></td>
+      <td><%= (sale.sale_amount/sale.units_sold).round(2) %></td>
       </tr>
     <% end %>
   </tbody>
