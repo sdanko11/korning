@@ -12,7 +12,7 @@
       <tr>
         <td><%= customer.name %> </td>
         <td><%= customer.acct_numbner %></td>
-        <td><%= link_to customer.url, "#{customer.url}" %></td>
+        <td><%= link_to customer.url, "#{customer.url}", target: "_blank" %></td>
       </tr>
     <% end %>
   </tbody>
